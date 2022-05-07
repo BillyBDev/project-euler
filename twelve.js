@@ -6,15 +6,13 @@
 
 
 function highlyDivisibleTriangleNumber(ceiling){
-    // find really high triangle numbers
 
     let numOfFactors = 1;
 
     const triangleNums = [1];
 
-    let sets = {};
-
-
+    // memoization possible
+    // let sets = {};
 
     while (numOfFactors <= ceiling){
         // find next triangle number
@@ -27,19 +25,9 @@ function highlyDivisibleTriangleNumber(ceiling){
 
     return triangleNums[triangleNums.length - 1];
 
-    // console.log(triangleNums)
-    
-
-    // by the time you run findFactorsOf 20, 20 will be your current lowest number in the factors array with the exception of 1.
-    // this isn't true; for example, you could've already found factors of 25.
-    // console.log(findFactorsOf(20))
-
-    // idea: howManyFactors vs findFactors
-
     function findFactorsOf(num){
         const factors = []
         for (let i = Math.floor(Math.sqrt(num)); i > 0; i--){
-            // i is potential factor
             if (num % i === 0){
                 let factor1 = i;
                 let factor2 = num / i;
@@ -56,18 +44,6 @@ function highlyDivisibleTriangleNumber(ceiling){
 
 
 console.log(highlyDivisibleTriangleNumber(500))
-
-// memoize found triangleNums with their sets of divisors
-// when searching for divisors, look from most-to-least, so that you can make use of previously-found sets
-
-// search below sqrt only
-// found divisors will give you the pairwise >sqrt
-
-// why memoize only triangle nums?
-// you should memoize many more repeating sets.
-
-// take a recursive approach to finding divisors.  store all sets.
-
 
 
 
